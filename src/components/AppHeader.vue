@@ -36,7 +36,7 @@
               <a class="nav-link" href="#">Laptops</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Fragances</a>
+              <a class="nav-link" href="#">Fragrances</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Skincare</a>
@@ -52,14 +52,17 @@
       </div>
     </nav>
   </header>
+  <home-view/>
 </template>
   
 <script>
 
 import SearchBar from "@/components/SearchBar.vue";
+import HomeView from "@/views/HomeView.vue";
 export default {
     name: 'AppHeader',
     components: {
+      HomeView,
       SearchBar
 
 }
