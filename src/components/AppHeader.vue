@@ -52,7 +52,7 @@
       </div>
     </nav>
   </header>
-  <home-view/>
+
 </template>
   
 <script>
@@ -62,7 +62,6 @@ import HomeView from "@/views/HomeView.vue";
 export default {
     name: 'AppHeader',
     components: {
-      HomeView,
       SearchBar
   }
 }
