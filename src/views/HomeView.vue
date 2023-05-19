@@ -44,7 +44,7 @@
       <div class="container">
         <h2 class="top-offers__title">Deals of the day</h2>
         <div class="top-offers-grid">
-          <products v-bind:products="products"/>
+          <products/>
         </div>
       </div>
     </section>
@@ -60,44 +60,17 @@
 import Newsletter from "@/components/Newsletter.vue";
 import Products from "@/components/Products.vue";
 import Categories from "@/components/Categories.vue";
-import Footer from "@/components/Footer.vue";
+
 export default {
   name: 'HomeView',
   components: {
-    Footer,
     Categories,
     Products,
     Newsletter
-
   },
   data() {
     return {
-      "products": [
-        {
-          "id":1,
-          "title": "iPhone 9",
-          "description": "An apple mobile which is nothing like apple",
-          "price": 549,
-          "discountPercentage": 12.96,
-          "picture": '../assets/images/products/smartphones/1.jpg'
-        },
-        {
-          "id":2,
-          "title": "iPhone 9",
-          "description": "An apple mobile which is nothing like apple",
-          "price": 549,
-          "discountPercentage": 12.96,
-          "picture": '../assets/images/products/smartphones/1.jpg'
-        },
-        {
-          "id":3,
-          "title": "iPhone 9",
-          "description": "An apple mobile which is nothing like apple",
-          "price": 549,
-          "discountPercentage": 12.96,
-          "picture": '../assets/images/products/smartphones/1.jpg'
-        }
-      ]
+
     };
   },
   computed: {
@@ -269,6 +242,5 @@ export default {
   flex: 0 0 250px;
   scroll-snap-align: start;
   box-sizing: border-box;
-
 }
 </style>

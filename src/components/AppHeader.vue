@@ -64,8 +64,7 @@ export default {
     components: {
       HomeView,
       SearchBar
-
-}
+  }
 }
 </script>
   
@@ -110,7 +109,7 @@ a {
 }
 
 a:hover {
-  color: var(--accent-color);
+  color: #85A2B7FF;
 }
 
 .btn {

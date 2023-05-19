@@ -3,29 +3,9 @@
     <div class="container">
       <ul class="nav nav-pills categories-products-grid__categories" id="v-pills-categories-tab" role="tablist"
           aria-orientation="vertical">
-        <li class="nav-link active categories-products-grid__category" id="v-pills-categories-smartphones-tab"
-            data-bs-toggle="pill" data-bs-target="#v-pills-categories-smartphones" aria-selected="true">
-          <span>Smartphones</span>
-        </li>
-        <li class="nav-link categories-products-grid__category" id="v-pills-categories-skincare-tab"
-            data-bs-toggle="pill" data-bs-target="#v-pills-categories-skincare" aria-selected="true">
-          <span>Skincare</span>
-        </li>
-        <li class="nav-link categories-products-grid__category" id="v-pills-categories-laptops-tab"
-            data-bs-toggle="pill" data-bs-target="#v-pills-categories-laptops" aria-selected="true">
-          <span>Laptops</span>
-        </li>
-        <li class="nav-link categories-products-grid__category" id="v-pills-categories-fragances-tab"
-            data-bs-toggle="pill" data-bs-target="#v-pills-categories-fragances" aria-selected="true">
-          <span>Fragances</span>
-        </li>
-        <li class="nav-link categories-products-grid__category" id="v-pills-categories-groceries-tab"
-            data-bs-toggle="pill" data-bs-target="#v-pills-categories-groceries" aria-selected="true">
-          <span>Groceries</span>
-        </li>
-        <li class="nav-link categories-products-grid__category" id="v-pills-categories-homedecoration-tab"
-            data-bs-toggle="pill" data-bs-target="#v-pills-categories-homedecoration" aria-selected="true">
-          <span>Home decoration</span>
+        <li class="nav-link categories-products-grid__category" :id="'v-pills-categories-'+cate+'-tab'"
+            data-bs-toggle="pill" :data-bs-target="'#v-pills-categories-'+cate" aria-selected="true" v-for="cate in category" v-bind:key="cate.id">
+          <span>{{cate}}</span>
         </li>
       </ul>
       <div class="tab-content" id="v-pills-categories-tabContent">
@@ -33,8 +13,7 @@
              aria-labelledby="v-pills-categories-smartphones-tab" tabindex="0">
           <section class="products-grid">
             <article class="product-card">
-              <a href="
-                ">
+              <a href="">
                 <div class="product-card__top">
                   <div class="product-card__image">
                     <img src="../assets/images/products/smartphones/1.jpg" alt="iphone 9">
@@ -59,7 +38,7 @@
             </article>
           </section>
         </div>
-      </div>
+
       <div class="tab-pane fade" id="v-pills-categories-skincare" role="tabpanel"
            aria-labelledby="v-pills-categories-skincare-tab" tabindex="0">
         <section class="products-grid">
@@ -91,12 +70,19 @@
         </section>
       </div>
     </div>
+    </div>
   </section>
 </template>
 
 <script>
+import json from '@/json/categories.json'
 export default {
-  name: "Categories"
+  name: "Categories",
+  data() {
+    return {
+      category: json,
+    };
+  }
 }
 </script>
 

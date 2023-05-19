@@ -1,9 +1,9 @@
 <template>
-  <article class="product-card" v-for="product in products" :key="product.id">
+  <article class="product-card" v-for="product in products" v-bind:key="product.id">
     <a href="">
       <div class="product-card__top">
         <div class="product-card__image">
-          <img src="{{ product.picture }}" alt="iphone 9">
+          <img v-bind:src="'../assets/images/' + product.img" alt="iphone 9">
           <div class="product-card__discount">
             <span>{{ product.discountPercentage }}</span>
           </div>
@@ -24,12 +24,16 @@
     </a>
   </article>
 </template>
-
 <script>
+import json from '@/json/products.json'
 export default {
   name: "Products",
-  props:{
-    products: Array,
+  computed: {
+  },
+  data() {
+    return {
+      products: json.products,
+    };
   }
 }
 </script>
@@ -46,6 +50,7 @@ article{
   box-shadow: var(--box-shadow-light);
   overflow: hidden;
   animation: card-out 0.5s ease 0s 1 backwards;
+  text-align: center;
 }
 
 @keyframes card-out {
