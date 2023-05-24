@@ -6,7 +6,7 @@
         <h1 class="main-title">Sign in</h1>
         <p class="auth-intro">Log in to your account.</p>
 
-        <form>
+        <form @submit.prevent="login">
           <div class="form-group">
             <label class="form-label" for="username">E-mail</label>
             <input
@@ -48,13 +48,21 @@ export default {
   name: "LoginView",
   data: function () {
     return {
- 
+      email: '',
+      password: '',
     };
   },
   methods: {
     login: function (e) {
       const auth = getAuth();
-      signInWithEmailAndPassword()
+      signInWithEmailAndPassword(auth, this.email, this.password).then(() => {
+        alert('Successfully logged in');
+        this.$router.push('/');
+      })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+          });
       e.preventDefault();
     },
   },

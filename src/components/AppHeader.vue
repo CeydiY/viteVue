@@ -3,10 +3,10 @@
     <nav class="navbar navbar-light navbar-header">
       <div class="container">
         <div class="logo">
-          <a href="/">
+          <router-link to="/">
             <img src="../assets/images/logos/logo.svg" class="img-fluid logo-img logo-img--full" alt="logo">
             <img src="../assets/images/logos/icon.svg" class="img-fluid logo-img logo-img--mobile" alt="logo">
-          </a>
+          </router-link>
         </div>
         <search-bar/>
         <div class="user-options">
@@ -14,7 +14,7 @@
             <a href="" aria-label="Cart" class="nav-link"><i class="fas fa-cart-shopping fa-xl"></i></a>
           </div>
           <div class="user-options__item">
-            <a href="" aria-label="User" class="nav-link"><i class="fas fa-user fa-xl"></i></a>
+            <router-link to="/login"><i class="fas fa-user fa-xl"></i></router-link>
           </div>
         </div>
       </div>
@@ -30,35 +30,34 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="#">Smartphones</a>
+              <router-link to="/notFound">Smartphones</router-link>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Laptops</a>
+              <router-link to="/notFound">Laptops</router-link>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Fragrances</a>
+              <router-link to="/notFound">Fragrances</router-link>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Skincare</a>
+              <router-link to="/notFound">Skincare</router-link>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Groceries</a>
+              <router-link to="/notFound">Groceries</router-link>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Home decoration</a>
+              <router-link to="/notFound">Home decoration</router-link>
             </li>
           </ul>
         </div>
       </div>
     </nav>
   </header>
-
+  <router-view></router-view>
 </template>
   
 <script>
 
 import SearchBar from "@/components/SearchBar.vue";
-import HomeView from "@/views/HomeView.vue";
 export default {
     name: 'AppHeader',
     components: {
@@ -129,11 +128,9 @@ h1, h2, h3, h4, h5, h6 {
 .main-header {
   background-color: #fff;
   width: 100%;
-  z-index: 10;
   position: sticky;
   top: 0;
   font-family: 'EB Garamond', serif;
-
 }
 
 .navbar-header {

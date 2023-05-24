@@ -42,24 +42,38 @@
 </template>
 
 <script>
+
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+
+// const email = ref('')
+// const password = ref('')
 
 export default {
   name: "RegisterView",
-  data: function () {
+  data() {
     return {
-
+      email: '',
+      password: '',
     };
   },
   methods: {
     register: function (e) {
-      const auth = getAuth();
-      createUserWithEmailAndPassword()
+      const auth=getAuth();
+      createUserWithEmailAndPassword(auth,this.email, this.password) // need .value because ref()
+          .then(() => {
+            alert('Successfully registered! Please login.');
+            this.$router.push('/');
+          })
+    .catch(error => {
+        console.log(error.code)
+        alert(error.message);
+      });
       e.preventDefault();
     },
   },
-};
+}
 </script>
+
 <style lang="scss" scoped>
 .container {
   max-width: 500px;
