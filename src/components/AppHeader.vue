@@ -14,7 +14,13 @@
             <a href="" aria-label="Cart" class="nav-link"><i class="fas fa-cart-shopping fa-xl"></i></a>
           </div>
           <div class="user-options__item">
-            <router-link to="/login"><i class="fas fa-user fa-xl"></i></router-link>
+            <span v-if="isLoggedIn">
+              <a @click="logout">Logout</a>
+            </span>
+            <span v-else>
+              <router-link to="/login"><i class="fas fa-user fa-xl"></i></router-link>&nbsp;&nbsp;
+              <router-link to="/register">Register</router-link>
+            </span>
           </div>
         </div>
       </div>
@@ -58,11 +64,29 @@
 <script>
 
 import SearchBar from "@/components/SearchBar.vue";
+import {getAuth, signOut} from "firebase/auth";
 export default {
     name: 'AppHeader',
     components: {
       SearchBar
-  }
+    },
+    computed : {
+      isLoggedIn : function(){ }
+    },
+    methods: {
+      logout() {
+        const auth = getAuth();
+            signOut(auth)
+            .then(() => {
+              alert('Successfully logged out');
+              this.$router.push('/');
+            })
+            .catch(error => {
+              alert(error.message);
+              this.$router.push('/');
+            });
+      },
+    }
 }
 </script>
   

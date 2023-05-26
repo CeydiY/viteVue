@@ -7,6 +7,8 @@ import './firebase';
 import 'bootstrap'
 import "bootstrap/dist/css/bootstrap.min.css"; // bootstrap
 
+
 const app = createApp(App);
 app.use(router);
+
 app.mount("#app")
